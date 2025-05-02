@@ -1,0 +1,70 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<BaseLayout
+  title="Blog - Iglesia Bautista Reformada"
+  description="Reflexiones, enseñanzas y artículos de edificación cristiana"
+>
+  <section class="text-center py-20 bg-white">
+    <h1
+      class="text-4xl md:text-6xl font-bold text-blue-900 mb-6 fade-in delay-0"
+    >
+      Blog
+    </h1>
+    <p
+      class="text-lg md:text-2xl text-gray-600 max-w-3xl mx-auto fade-in delay-1"
+    >
+      Enseñanzas bíblicas, reflexiones pastorales y recursos para tu crecimiento
+      espiritual.
+    </p>
+  </section>
+
+  <div class="wave-divider rotate-180">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,
+        82.39-16.72,168.19-17.73,250.45-.39,
+        80.94,17.34,163.83,58.32,242.82,79.15,
+        70.05,18.48,146.53,26.09,214.34,3V0H0V27.35
+        A600.21,600.21,0,0,0,321.39,56.44Z"
+        class="fill-gray-50"></path>
+    </svg>
+  </div>
+
+  <!-- Listado de artículos -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+      {
+        posts.map((post) => (
+          <a
+            href={`/blog/${post.slug}`}
+            class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition transform hover:scale-105 fade-in delay-0"
+          >
+            <img
+              src={post.data.image}
+              alt={post.data.title}
+              class="rounded-md mb-4 w-full h-48 object-cover"
+            />
+            <h2 class="text-xl font-bold text-blue-900 mb-2">
+              {post.data.title}
+            </h2>
+            <p class="text-gray-600 text-sm mb-1">
+              🕮 {new Date(post.data.date).toLocaleDateString("es-ES")}
+            </p>
+            <p class="text-gray-700 text-base">{post.data.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

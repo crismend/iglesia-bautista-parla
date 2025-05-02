@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CarruselEventosPasados from "../components/CarruselEventosPasados.astro";
+import SwiperCarrusel from "../components/SwiperCarrusel.jsx"; // ajusta la ruta si está en otra carpeta
+---
+
+<BaseLayout
+  title="Eventos - Iglesia Bautista Reformada"
+  description="Descubre nuestras próximas actividades y eventos especiales."
+>
+  <!-- Sección principal -->
+  <section class="text-center py-20 bg-white">
+    <h1
+      class="text-4xl md:text-6xl font-bold text-blue-900 mb-6 fade-in delay-0"
+    >
+      Eventos
+    </h1>
+    <p
+      class="text-lg md:text-2xl text-gray-600 max-w-3xl mx-auto fade-in delay-1"
+    >
+      Conoce nuestras actividades y próximos encuentros especiales donde podrás
+      crecer en fe y comunidad.
+    </p>
+  </section>
+
+  <!-- Onda separadora -->
+  <div class="wave-divider rotate-180">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,
+        82.39-16.72,168.19-17.73,250.45-.39,
+        80.94,17.34,163.83,58.32,242.82,79.15,
+        70.05,18.48,146.53,26.09,214.34,3V0H0V27.35
+        A600.21,600.21,0,0,0,321.39,56.44Z"
+        class="fill-gray-50"></path>
+    </svg>
+  </div>
+
+  <!-- Sección: Eventos Pasados -->
+  <section class="py-20 bg-gray-50 text-center">
+    <h2 class="text-3xl font-semibold text-blue-900 mb-10 fade-in delay-0">
+      Eventos Pasados
+    </h2>
+    <div class="max-w-6xl mx-auto px-4 fade-in delay-1">
+      <CarruselEventosPasados />
+      <SwiperCarrusel client:load />
+    </div>
+  </section>
+
+  <!-- Onda separadora -->
+  <div class="wave-divider">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,
+        82.39-16.72,168.19-17.73,250.45-.39,
+        80.94,17.34,163.83,58.32,242.82,79.15,
+        70.05,18.48,146.53,26.09,214.34,3V0H0V27.35
+        A600.21,600.21,0,0,0,321.39,56.44Z"
+        class="fill-gray-50"></path>
+    </svg>
+  </div>
+
+  <!-- Sección: Próximos Eventos -->
+  <section class="py-20 bg-white text-center">
+    <h2 class="text-3xl font-semibold text-blue-900 mb-10 fade-in delay-0">
+      Próximos Eventos
+    </h2>
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-8">
+      <!-- Evento 1 -->
+      <div
+        class="bg-gray-50 p-8 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105 fade-in delay-0"
+      >
+        <div class="text-blue-800 font-semibold mb-2">📅 18 Mayo 2025</div>
+        <h3 class="text-2xl font-bold text-blue-900 mb-2">
+          Conferencia Bíblica
+        </h3>
+        <p class="text-gray-700 text-lg">
+          "Profundizando en la Palabra de Dios". Un tiempo especial de
+          aprendizaje y crecimiento espiritual.
+        </p>
+      </div>
+
+      <!-- Evento 2 -->
+      <div
+        class="bg-gray-50 p-8 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105 fade-in delay-0"
+      >
+        <div class="text-blue-800 font-semibold mb-2">📅 25 Mayo 2025</div>
+        <h3 class="text-2xl font-bold text-blue-900 mb-2">
+          Taller de Evangelismo
+        </h3>
+        <p class="text-gray-700 text-lg">
+          Aprende a compartir tu fe de manera efectiva, fiel y compasiva en tu
+          día a día.
+        </p>
+      </div>
+
+      <!-- Evento 3 -->
+      <div
+        class="bg-gray-50 p-8 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105 fade-in delay-0"
+      >
+        <div class="text-blue-800 font-semibold mb-2">📅 15 Junio 2025</div>
+        <h3 class="text-2xl font-bold text-blue-900 mb-2">
+          Aniversario de Iglesia
+        </h3>
+        <p class="text-gray-700 text-lg">
+          Celebra con nosotros un año más de fidelidad y gracia de nuestro
+          Señor.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

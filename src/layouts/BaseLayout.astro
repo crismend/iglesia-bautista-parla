@@ -1,0 +1,235 @@
+---
+import "../styles/global.css";
+const {
+  title = "Iglesia Bautista Reformada",
+  description = "Una comunidad de fe en Cristo.",
+} = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/src/assets/favicon.png" />
+    <!-- Google Fonts: Playfair Display -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 🟢 SEO Social (Open Graph y Twitter Card) -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:image" content="/imagenRedes.png" />
+    <meta property="og:url" content="https://iglesiabautistadeparla.com" />
+    <meta property="og:site_name" content="Iglesia Bautista de Parla" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/imagenRedes.png" />
+  </head>
+
+  <body class="bg-white text-gray-800 font-sans">
+    <!-- Header -->
+    <header
+      class="w-full py-6 px-8 flex justify-between items-center shadow-md bg-white fixed top-0 left-0 z-50"
+    >
+      <a href="/" class="flex items-center space-x-3">
+        <img
+          src="/assets/logoIBP.png"
+          alt="Logo Iglesia Bautista"
+          class="h-24 w-auto rounded-2xl"
+        />
+        <span
+          class="text-2xl md:text-3xl font-bold text-gray-600 font-playfair"
+        >
+          Iglesia Bautista Parla
+        </span>
+      </a>
+
+      <!-- Menú Desktop -->
+      <nav class="hidden md:flex space-x-6">
+        <a
+          href="/"
+          class={`px-3 py-2 rounded transition ${
+            currentPath === "/"
+              ? "bg-blue-100 text-blue-800 shadow"
+              : "text-gray-600 hover:text-blue-800"
+          }`}
+        >
+          Inicio
+        </a>
+
+        <a
+          href="/quienes-somos"
+          class={`px-3 py-2 rounded transition ${
+            currentPath === "/quienes-somos"
+              ? "bg-blue-100 text-blue-800 shadow"
+              : "text-gray-600 hover:text-blue-800"
+          }`}
+        >
+          Nosotros
+        </a>
+
+        <a
+          href="/reuniones"
+          class={`px-3 py-2 rounded transition ${
+            currentPath === "/reuniones"
+              ? "bg-blue-100 text-blue-800 shadow"
+              : "text-gray-600 hover:text-blue-800"
+          }`}
+        >
+          Reuniones
+        </a>
+
+        <a
+          href="/eventos"
+          class={`px-3 py-2 rounded transition ${
+            currentPath === "/eventos"
+              ? "bg-blue-100 text-blue-800 shadow"
+              : "text-gray-600 hover:text-blue-800"
+          }`}
+        >
+          Eventos
+        </a>
+
+        <a
+          href="/blog"
+          class={`px-3 py-2 rounded transition ${
+            currentPath === "/blog"
+              ? "bg-blue-100 text-blue-800 shadow"
+              : "text-gray-600 hover:text-blue-800"
+          }`}
+        >
+          Blog
+        </a>
+
+        <a
+          href="/contacto"
+          class={`px-3 py-2 rounded transition ${
+            currentPath === "/contacto"
+              ? "bg-blue-100 text-blue-800 shadow"
+              : "text-gray-600 hover:text-blue-800"
+          }`}
+        >
+          Contacto
+        </a>
+      </nav>
+
+      <!-- Botón hamburguesa para móviles -->
+      <button id="menu-btn" class="md:hidden text-blue-900 focus:outline-none">
+        <svg
+          class="w-8 h-8"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      <!-- Menú móvil (oculto por defecto) -->
+      <div
+        id="mobile-menu"
+        class="hidden absolute top-full left-0 w-full bg-white shadow-md md:hidden flex-col text-center py-4 space-y-4"
+      >
+        <a
+          href="/"
+          class={`block text-gray-600 hover:text-blue-800 px-4 py-2 ${
+            currentPath === "/" ? "bg-blue-100 text-blue-800 shadow" : ""
+          }`}
+        >
+          Inicio
+        </a>
+
+        <a
+          href="/quienes-somos"
+          class={`block text-gray-600 hover:text-blue-800 px-4 py-2 ${
+            currentPath === "/quienes-somos"
+              ? "bg-blue-100 text-blue-800 shadow"
+              : ""
+          }`}
+        >
+          Quiénes Somos
+        </a>
+
+        <a
+          href="/reuniones"
+          class={`block text-gray-600 hover:text-blue-800 px-4 py-2 ${
+            currentPath === "/reuniones"
+              ? "bg-blue-100 text-blue-800 shadow"
+              : ""
+          }`}
+        >
+          Reuniones
+        </a>
+
+        <a
+          href="/eventos"
+          class={`block text-gray-600 hover:text-blue-800 px-4 py-2 ${
+            currentPath === "/eventos" ? "bg-blue-100 text-blue-800 shadow" : ""
+          }`}
+        >
+          Eventos
+        </a>
+
+        <a
+          href="/blog"
+          class={`block text-gray-600 hover:text-blue-800 px-4 py-2 ${
+            currentPath === "/blog" ? "bg-blue-100 text-blue-800 shadow" : ""
+          }`}
+        >
+          Blog
+        </a>
+
+        <a
+          href="/contacto"
+          class={`block text-gray-600 hover:text-blue-800 px-4 py-2 ${
+            currentPath === "/contacto"
+              ? "bg-blue-100 text-blue-800 shadow"
+              : ""
+          }`}
+        >
+          Contacto
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="px-4 pt-28 md:pt-32 py-10 mt-8">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="w-full py-6 px-8 mt-10 border-t text-center text-sm text-gray-500"
+    >
+      © {new Date().getFullYear()} Iglesia Bautista Reformada - Todos los derechos
+      reservados.
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+      const btn = document.getElementById("menu-btn");
+      const menu = document.getElementById("mobile-menu");
+      if (btn && menu) {
+        btn.addEventListener("click", () => {
+          menu.classList.toggle("hidden");
+        });
+      }
+    </script>
+
+    <script type="module" src="/src/scripts/scroll-animation.js"></script>
+  </body>
+</html>
